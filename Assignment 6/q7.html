@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Validation</title>
+</head>
+<body>
+  <h2>Date Validation</h2>
+  <form id="dateForm">
+    <input type="text" id="date" placeholder="DD/MM/YYYY"><br>
+    <div id="msg"></div>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    let form = document.getElementById("dateForm")
+    let date = document.getElementById("date")
+    let msg = document.getElementById("msg")
+    form.onsubmit = function(e) {
+      e.preventDefault()
+      let regex = /^\d{2}\/\d{2}\/\d{4}$/
+      if(regex.test(date.value)) {
+        msg.style.color = "green"
+        msg.innerText = "Valid date format"
+      } else {
+        msg.style.color = "red"
+        msg.innerText = "Invalid date format"
+      }
+    }
+  </script>
+</body>
+</html>

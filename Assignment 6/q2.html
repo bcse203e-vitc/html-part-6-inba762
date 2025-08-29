@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Validation</title>
+</head>
+<body>
+  <h2>Email Validation</h2>
+  <form>
+    <input type="text" id="email" placeholder="Enter your email">
+    <div id="msg"></div>
+  </form>
+  <script>
+    let email = document.getElementById("email")
+    let msg = document.getElementById("msg")
+    email.onblur = function() {
+      let regex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
+      if(regex.test(email.value)) {
+        msg.style.color = "green"
+        msg.innerText = "Valid email"
+      } else {
+        msg.style.color = "red"
+        msg.innerText = "Invalid email"
+      }
+    }
+  </script>
+</body>
+</html>

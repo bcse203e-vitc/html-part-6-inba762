@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phone Validation</title>
+</head>
+<body>
+  <h2>Phone Number Validation</h2>
+  <form>
+    <input type="text" id="phone" placeholder="Enter phone number">
+    <div id="msg"></div>
+  </form>
+  <script>
+    let phone = document.getElementById("phone")
+    let msg = document.getElementById("msg")
+    phone.oninput = function() {
+      let regex = /^(\(\d{3}\)\s?\d{3}-\d{4}|\d{3}-\d{3}-\d{4})$/
+      if(regex.test(phone.value)) {
+        msg.style.color = "green"
+        msg.innerText = "Valid phone number"
+      } else {
+        msg.style.color = "red"
+        msg.innerText = "Invalid phone number"
+      }
+    }
+  </script>
+</body>
+</html>

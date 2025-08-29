@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Continent & Country Dropdown</title>
+</head>
+<body>
+  <h2>Select Continent and Country</h2>
+  <form>
+    <select id="continent">
+      <option value="">Select Continent</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="Africa">Africa</option>
+    </select><br>
+    <select id="country">
+      <option value="">Select Country</option>
+    </select>
+  </form>
+  <script>
+    let continent = document.getElementById("continent")
+    let country = document.getElementById("country")
+    let data = {
+      Asia: ["India","China","Japan"],
+      Europe: ["France","Germany","Italy"],
+      Africa: ["Nigeria","Egypt","South Africa"]
+    }
+    continent.onchange = function() {
+      country.innerHTML = "<option value=''>Select Country</option>"
+      if(data[continent.value]) {
+        data[continent.value].forEach(c => {
+          let opt = document.createElement("option")
+          opt.value = c
+          opt.text = c
+          country.appendChild(opt)
+        })
+      }
+    }
+  </script>
+</body>
+</html>

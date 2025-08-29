@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Username Validation</title>
+</head>
+<body>
+  <h2>Username Validation</h2>
+  <form id="userForm">
+    <input type="text" id="username" placeholder="Enter username"><br>
+    <div id="msg"></div>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    let form = document.getElementById("userForm")
+    let user = document.getElementById("username")
+    let msg = document.getElementById("msg")
+    form.onsubmit = function(e) {
+      e.preventDefault()
+      let regex = /^[a-zA-Z0-9_]{3,16}$/
+      if(regex.test(user.value)) {
+        msg.style.color = "green"
+        msg.innerText = "Valid username"
+      } else {
+        msg.style.color = "red"
+        msg.innerText = "Invalid username"
+      }
+    }
+  </script>
+</body>
+</html>

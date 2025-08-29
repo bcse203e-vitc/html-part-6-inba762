@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hex Color Validation</title>
+  
+</head>
+<body>
+  <h2>Hex Color Validation</h2>
+  <form>
+    <div class="wrapper">
+      <input type="text" id="color" placeholder="#RRGGBB or #RGB">
+      <div id="preview"></div>
+    </div>
+    <div id="msg"></div>
+  </form>
+  <script>
+    let color = document.getElementById("color")
+    let msg = document.getElementById("msg")
+    let preview = document.getElementById("preview")
+
+    color.addEventListener("input", () => {
+      let value = color.value.trim()
+      let regex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
+      preview.style.backgroundColor = value
+      if(regex.test(value)) {
+        msg.style.color = "green"
+        msg.innerText = "Valid color"
+      } else {
+        msg.style.color = "red"
+        msg.innerText = "Invalid color"
+      }
+    })
+  </script>
+</body>
+</html>
